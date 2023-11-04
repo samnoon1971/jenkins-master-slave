@@ -62,6 +62,13 @@ kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
 ```
 
+4. Update hosts file by browsing to `C:\Windows\System32\drivers\etc` for Windows and `/etc/hosts` for Linux systems, and add following lines to hosts file:
+
+```
+127.0.0.1 jenkins.master.local
+127.0.0.1 jenkins.slave1.local
+127.0.0.1 jenkins.slave2.local
+```
 
 
 ## Support
