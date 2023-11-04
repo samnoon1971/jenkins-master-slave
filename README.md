@@ -1,4 +1,4 @@
-# Jenkins Master Slave helm chart
+# Jenkins Master Slave Helm Chart
 A Jenkins master slave-agent architecture using k8s and helm
 
 
