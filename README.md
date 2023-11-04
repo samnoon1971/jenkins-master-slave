@@ -1,5 +1,5 @@
-# jenkins-master-slave
-jenkins master slave architecture using k8s and helm
+# Jenkins Master Slave helm chart
+A Jenkins master slave-agent architecture using k8s and helm
 
 
 ## Installation:
