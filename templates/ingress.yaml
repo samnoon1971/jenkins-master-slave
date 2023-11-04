@@ -1,18 +1,36 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "jenkins-msarch.fullname" . }}
-  labels:
-    {{- include "jenkins-msarch.labels" . | nindent 4 }}
+  name: jenkins-ingress
 spec:
   rules:
-    - host: {{ .Values.ingress.hostname }}
+    - host: jenkins.master.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "jenkins-msarch.fullname" . }}
+                name: jenkins-cicd-jenkins-msarch  # Name of the Jenkins master service
                 port:
-                  number: 8080
+                  number: 8080  # Port of the Jenkins master deployment
+    - host: jenkins.slave1.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jenkins-cicd-jenkins-msarch-slave1  # Name of the Jenkins slave 1 service
+                port:
+                  number: 8081  # Port of the Jenkins slave 1 deployment
+    - host: jenkins.slave2.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jenkins-cicd-jenkins-msarch-slave2  # Name of the Jenkins slave 2 service
+                port:
+                  number: 8082  # Port of the Jenkins slave 2 deployment

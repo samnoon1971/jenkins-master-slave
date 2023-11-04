@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "jenkins-msarch.fullname" . }}-slave
+  name: {{ include "jenkins-msarch.fullname" . }}-slave-1
   labels:
     {{- include "jenkins-msarch.labels" . | nindent 4 }}
 spec:
@@ -31,11 +31,9 @@ spec:
           volumeMounts:
             - name: workspace-volume
               mountPath: /home/jenkins/agent
-          ports:
-            - name: http
-              containerPort: 8080
-              nodePort: 31002
-              protocol: TCP
+
       volumes:
         - name: workspace-volume
           emptyDir: {}
+
+

@@ -13,6 +13,12 @@ If release name contains chart name it will be used as a full name.
 {{- define "jenkins-msarch.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else if eq .Chart.Name "jenkins-master" }}
+jenkins.master.local
+{{- else if eq .Chart.Name "jenkins-slave-1" }}
+jenkins.slave1.local
+{{- else if eq .Chart.Name "jenkins-slave-2" }}
+jenkins.slave2.local
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
 {{- if contains $name .Release.Name }}
