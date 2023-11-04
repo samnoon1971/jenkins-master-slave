@@ -45,7 +45,7 @@ set CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="
 EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
 
-3. Get the pods by running following command:
+3. To forward a local port to a port on the Pod, get the pods by running following command:
 
 ```
 kubectl get pods -l app.kubernetes.io/name=jenkins-msarch
