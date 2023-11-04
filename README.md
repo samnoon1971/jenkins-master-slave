@@ -50,7 +50,7 @@ EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpat
 ```
 kubectl get pods -l app.kubernetes.io/name=jenkins-msarch
 ```
-Then type following command for each of the pods replacing `POD_ID` and `HOST_PORT` for each of the 3 pods:
+Then type following command replacing `POD_ID` and `HOST_PORT` for any of the pods:
 
 ```
 kubectl --namespace default port-forward POD_ID HOST_PORT:8080
