@@ -48,7 +48,7 @@ EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpat
 3. Get the pods by running following command:
 
 ```
-kubectl get pods
+kubectl get pods -l app.kubernetes.io/name=jenkins-msarch
 ```
 Then type following command for each of the pods replacing `POD_ID` and `HOST_PORT` for each of the 3 pods:
 
