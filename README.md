@@ -37,10 +37,10 @@ Get the pods by running following command:
 ```
 kubectl get pods
 ```
-Then type following command for each of the pods replacing `DESIRED_POD_ID` and `HOST_PORT` for each of the 3 pods:
+Then type following command for each of the pods replacing `POD_ID` and `HOST_PORT` for each of the 3 pods:
 
 ```
-kubectl --namespace default port-forward [DESIRED_POD_ID] 8080:HOST_PORT
+kubectl --namespace default port-forward POD_ID 8080:HOST_PORT
 ```
 
 example usage:
