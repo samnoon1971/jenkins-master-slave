@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "jenkins-msarch.fullname" . }}-test-connection"
+  labels:
+    {{- include "jenkins-msarch.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "jenkins-msarch.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
