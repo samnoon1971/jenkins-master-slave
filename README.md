@@ -40,11 +40,11 @@ kubectl get pods
 Then type following command for each of the pods replacing `POD_ID` and `HOST_PORT` for each of the 3 pods:
 
 ```
-kubectl --namespace default port-forward POD_ID 8080:HOST_PORT
+kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 ```
 
 example usage:
 
 ```
-kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8080:8080
+kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
 ```
