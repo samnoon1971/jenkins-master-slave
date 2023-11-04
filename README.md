@@ -11,28 +11,28 @@ helm install jenkins-cicd .
 ```
 
 ## Post Installation:
-Run following command:
+1. Run following command:
 
-Windows:
+**Windows:**
 ```
 set  POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
 ```
-Linux based OS:
+**Linux based OS:**
 ```
 EXPORT  POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
 ```
-Run Following command:
+2. Run Following command:
 
-Windows:
+**Windows:**
 ```
 set CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
-Linux based OS:
+**Linux based OS:**
 ```
 EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
 
-Get the pods by running following command:
+3. Get the pods by running following command:
 
 ```
 kubectl get pods
@@ -43,7 +43,7 @@ Then type following command for each of the pods replacing `POD_ID` and `HOST_PO
 kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 ```
 
-example usage:
+***example usage:***
 
 ```
 kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
