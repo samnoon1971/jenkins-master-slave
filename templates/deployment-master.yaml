@@ -26,19 +26,22 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+              nodePort: 31001
               protocol: TCP
+            - name: jnlp
+              containerPort: 5000  
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
           livenessProbe:
             httpGet:
-              path: /login
+              path: /
               port: http
             initialDelaySeconds: 300
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
-              path: /login
+              path: /
               port: http
             failureThreshold: 6
             initialDelaySeconds: 180
