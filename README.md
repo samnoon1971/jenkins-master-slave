@@ -2,6 +2,19 @@
 A Jenkins master slave-agent architecture using k8s and helm
 
 
+
+## Badges
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+
+
+## Authors
+
+- [@samnoon1971](https://www.github.com/samnoon1971)
+
+
 ## Installation:
 Run following command:
 
@@ -48,3 +61,15 @@ kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 ```
 kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
 ```
+
+
+
+## Support
+
+For support, email samnoonabrar@gmail.com
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at samnoonabrar@gmail.com
+  
