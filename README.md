@@ -16,6 +16,14 @@ A Jenkins master slave-agent architecture using k8s and helm
 
 
 ## Installation:
+
+Run following command to create / update ingress controller:
+
+```
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+```
 Run following command:
 
 
