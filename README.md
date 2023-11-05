@@ -69,7 +69,7 @@ kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-
 127.0.0.1 jenkins.slave1.local
 127.0.0.1 jenkins.slave2.local
 ```
-
+***Note:*** You must replace `127.0.0.1` with the host IP of your environment.
 
 ## Support
 
