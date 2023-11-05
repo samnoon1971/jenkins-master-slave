@@ -71,7 +71,7 @@ kubectl get pods -l app.kubernetes.io/name=jenkins-msarch  --namespace ingress-n
 Then type following command replacing `POD_ID` and `HOST_PORT` for any of the pods:
 
 ```
-kubectl --namespace default port-forward POD_ID HOST_PORT:8080
+kubectl --namespace ingress-nginx port-forward POD_ID HOST_PORT:8080
 ```
 
 ***example usage:***
