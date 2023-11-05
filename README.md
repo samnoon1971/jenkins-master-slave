@@ -76,6 +76,8 @@ kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-
 For support, email samnoonabrar@gmail.com
 
 
+Also, read to the **[official Helm documentation](https://helm.sh/docs/)** for additional information.
+
 ## Feedback
 
 If you have any feedback, please reach out to us at samnoonabrar@gmail.com
