@@ -56,7 +56,7 @@ EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpat
 3. To forward a local port to Jenkins GUI port (`8080`) on a Pod, get the pods by running following command:
 
 ```
-kubectl get pods -l app.kubernetes.io/name=jenkins-msarch
+kubectl get pods -l app.kubernetes.io/name=jenkins-msarch  --namespace ingress-nginx
 ```
 Then type following command replacing `POD_ID` and `HOST_PORT` for any of the pods:
 
