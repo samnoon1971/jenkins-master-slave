@@ -77,7 +77,7 @@ kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 ***example usage:***
 
 ```
-kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
+kubectl --namespace ingress-nginx port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
 ```
 
 
