@@ -52,8 +52,18 @@ set CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="
 ```
 EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
+3. Update hosts file by browsing to `C:\Windows\System32\drivers\etc\hosts` for Windows and `/etc/hosts` for Linux systems, and add following lines to hosts file:
 
-3. To forward a local port to Jenkins GUI port (`8080`) on a Pod, get the pods by running following command:
+```
+127.0.0.1 jenkins.master.local
+127.0.0.1 jenkins.slave1.local
+127.0.0.1 jenkins.slave2.local
+```
+***Note:*** You must replace `127.0.0.1` with the host IP of your environment.
+
+***Optional, but not recommended to expose Pods***
+
+4. To forward a local port to Jenkins GUI port (`8080`) on a Pod, get the pods by running following command:
 
 ```
 kubectl get pods -l app.kubernetes.io/name=jenkins-msarch  --namespace ingress-nginx
@@ -70,14 +80,6 @@ kubectl --namespace default port-forward POD_ID HOST_PORT:8080
 kubectl --namespace default port-forward jenkins-cicd-jenkins-msarch-6cd98fbdf4-hffmd 8082:8080
 ```
 
-4. Update hosts file by browsing to `C:\Windows\System32\drivers\etc\hosts` for Windows and `/etc/hosts` for Linux systems, and add following lines to hosts file:
-
-```
-127.0.0.1 jenkins.master.local
-127.0.0.1 jenkins.slave1.local
-127.0.0.1 jenkins.slave2.local
-```
-***Note:*** You must replace `127.0.0.1` with the host IP of your environment.
 
 ## Support
 
