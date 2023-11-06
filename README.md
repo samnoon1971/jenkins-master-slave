@@ -36,21 +36,21 @@ helm install jenkins-cicd .
 
 **Windows:**
 ```
-set POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
+set POD_NAME=$(kubectl get pods --namespace ingress-nginx -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
 ```
 **Linux based OS:**
 ```
-EXPORT POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
+EXPORT POD_NAME=$(kubectl get pods --namespace ingress-nginx -l "app.kubernetes.io/name=jenkins-msarch,app.kubernetes.io/instance=jenkins-cicd" -o jsonpath="{.items[0].metadata.name}")
 ```
 2. Run Following command:
 
 **Windows:**
 ```
-set CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+set CONTAINER_PORT=$(kubectl get pod --namespace ingress-nginx $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
 **Linux based OS:**
 ```
-EXPORT CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+EXPORT CONTAINER_PORT=$(kubectl get pod --namespace ingress-nginx $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 ```
 3. Update hosts file by browsing to `C:\Windows\System32\drivers\etc\hosts` for Windows and `/etc/hosts` for Linux systems, and add following lines to hosts file:
 
