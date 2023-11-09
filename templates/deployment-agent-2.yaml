@@ -4,6 +4,7 @@ metadata:
   name: {{ include "jenkins-msarch.fullname" . }}-slave-2
   labels:
     {{- include "jenkins-msarch.labels" . | nindent 4 }}
+  namespace: ingress-nginx
 spec:
   replicas: 2
   selector:
@@ -28,12 +29,12 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "200m"
+          ports:
+            - name: http
+              containerPort: 8080 
           volumeMounts:
             - name: workspace-volume
               mountPath: /home/jenkins/agent
-
       volumes:
         - name: workspace-volume
           emptyDir: {}
-
-

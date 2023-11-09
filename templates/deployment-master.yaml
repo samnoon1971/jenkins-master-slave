@@ -4,6 +4,7 @@ metadata:
   name: {{ include "jenkins-msarch.fullname" . }}
   labels:
     {{- include "jenkins-msarch.labels" . | nindent 4 }}
+  namespace: ingress-nginx
 spec:
   replicas: {{ .Values.master.replicaCount }}
   selector:
@@ -20,15 +21,14 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.master.securityContext | nindent 10 }}
+            runAsUser: {{ .Values.master.securityContext.runAsUser }}
+            runAsGroup: {{ .Values.master.securityContext.runAsGroup }}
+            runAsGroup: {{ .Values.master.securityContext.fsGroup }}
           image: "{{ .Values.master.image.repository }}:{{ .Values.master.image.tag }}"
           imagePullPolicy: {{ .Values.master.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8080
-              protocol: TCP
-            - name: jnlp
-              containerPort: 5000
+              containerPort: 8080  
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
@@ -51,3 +51,4 @@ spec:
       volumes:
         - name: jenkins-home
           emptyDir: {}
+       

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-cicd-jenkins-msarch
+  labels:
+    {{- include "jenkins-msarch.labels" . | nindent 4 }}
+  namespace: ingress-nginx
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: http
+    protocol: TCP
+    nodePort: 32000
+  type: NodePort
+  selector:
+    name: jenkins-cicd-jenkins-msarch
